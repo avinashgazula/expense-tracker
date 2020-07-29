@@ -3,27 +3,28 @@ export default (state, action) => {
         case 'DELETE_TRANSACTION':
             return {
                 ...state,
-                transactions: state.transactions.filter(transaction => transaction._id !== action.payload)
-            }
+                transactions: state.transactions.filter(
+                    (transaction) => transaction._id !== action.payload
+                ),
+            };
         case 'ADD_TRANSACTION':
             return {
                 ...state,
-                transactions: [...state.transactions, action.payload]
-            }
+                transactions: [...state.transactions, action.payload],
+            };
         case 'GET_TRANSACTIONS':
             return {
                 ...state,
                 loading: false,
-                transactions: [...action.payload]
-            }
+                transactions: [...action.payload],
+            };
         case 'ERROR_TRANSACTION':
             return {
                 ...state,
-                error: action.payload
-            }
-        
-        
+                error: action.payload,
+            };
+
         default:
             return state;
     }
-}
+};
