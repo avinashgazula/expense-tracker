@@ -46,7 +46,6 @@ exports.addTransaction = async (req, res, next) => {
 
 // @route DELETE /api/transactions/:id
 exports.deleteTransaction = async (req, res, next) => {
-    console.log(`id is ${req.params.id}`);
     const transaction = Transaction.findById(req.params.id);
 
     if (!transaction) {
@@ -56,7 +55,7 @@ exports.deleteTransaction = async (req, res, next) => {
         });
     }
 
-    await transaction.remove();
+    await transaction.deleteOne();
     return res.status(200).json({
         success: true,
         data: {},
